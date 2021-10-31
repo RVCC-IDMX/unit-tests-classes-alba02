@@ -37,7 +37,7 @@
 /* --------------Important Step Below ------------ */
 // import the Rectangle class using the CommonJS require() function
 // See triangle.js for an example of how to import a file
-
+const { Rectangle } = require('./rectangle');
 /**
  * Square class
  * @class Square class extends rectangle
@@ -61,7 +61,9 @@ class Square extends Rectangle {
    * @param {number} side - the length of a side of the square
    */
   constructor(side) {
-    // write your code here
+    super(side, side);
+    this.name = 'Square';
+    this.side = side;
   }
 
   /**
@@ -69,7 +71,7 @@ class Square extends Rectangle {
    * @returns {number} the side length
    */
   getSide() {
-    // write your code here
+    return this.side;
   }
 
   /**
@@ -79,7 +81,10 @@ class Square extends Rectangle {
    * otherwise return 0
    */
   area() {
-    // write your code here
+    if (typeof this.side === 'number' && this.side > 0) {
+      return this.side * this.side;
+    }
+    return 0;
   }
 }
 
